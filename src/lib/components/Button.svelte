@@ -13,21 +13,29 @@
 		border: none;
 		font-size: 20px;
 		cursor: pointer;
-        color: #fff;
+		color: #fff;
+		display: flex;
+		align-items: center;
+	}
+
+	.search {
+		background-color: #1d4ed8;
+		width: 50%;
+		height: 2.8rem;
+		margin-left: -3.5rem;
+		border: none;
+		outline: none;
 	}
 
 	.primary {
 		background-color: #1d4ed8;
-		
 	}
 
 	.danger {
 		background-color: #e51111;
-		
 	}
 
 	.success {
 		background-color: #27d76d;
-		
 	}
 </style>

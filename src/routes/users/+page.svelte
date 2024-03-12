@@ -1,12 +1,11 @@
 <script lang="ts">
 	import UserInfo from '$lib/components/UserInfo.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import Searchbar from '$lib/components/Searchbar.svelte';
 	function deleteUser(id: string) {
 		// Do firebase Code to delete the user Id
 	}
 </script>
-
-
 
 <main>
 	<div class="header">
@@ -21,11 +20,8 @@
 	</div>
 	<hr class="headerLine" />
 	<div class="items">
-		<Button variant="success">Add</Button>
-		<div class="search">
-			<input type="text" placeholder="Search for User" class="enter" />
-			<Button variant="primary">Search</Button>
-		</div>
+		<Button variant="success"><span class="material-symbols-outlined"> add </span>Add</Button>
+		<Searchbar text="Search" />
 	</div>
 	<div class="title">
 		<h3>Name</h3>
@@ -42,6 +38,7 @@
 	main {
 		width: 100%;
 	}
+
 	.header {
 		display: flex;
 		justify-content: space-between;
@@ -83,16 +80,5 @@
 	}
 	.entries {
 		align-items: center;
-	}
-
-	.enter {
-		width: 300px;
-		height: 40px;
-		border-radius: 10px;
-		border: none;
-		background-color: #f5f5f5;
-		color: #000;
-		font-size: 20px;
-		cursor: pointer;
 	}
 </style>

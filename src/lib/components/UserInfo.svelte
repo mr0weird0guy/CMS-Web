@@ -10,7 +10,7 @@
 	<p>{no}.{name}</p>
 	<p>{email}</p>
 	<p>{department}</p>
-	<Button variant="danger">Delete</Button>
+	<Button variant="danger">Delete<span class="material-symbols-outlined"> delete </span></Button>
 </div>
 
 <style>
