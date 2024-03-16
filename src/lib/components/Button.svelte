@@ -16,6 +16,7 @@
 		color: #fff;
 		display: flex;
 		align-items: center;
+		justify-content: center;
 	}
 
 	.search {
@@ -23,6 +24,7 @@
 		width: 50%;
 		height: 2.8rem;
 		margin-left: -3.5rem;
+		padding: 5px;
 		border: none;
 		outline: none;
 	}
