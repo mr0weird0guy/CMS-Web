@@ -34,22 +34,24 @@
 
 <style>
     .sidebar {
-        width: 100%;
-        max-width: 300px; 
-        height: 100vh;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        border: 1px solid #e0e0e0;
-        padding: 20px;
-        position: relative; 
-        background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        background-image: url("./images/background-image.png");
-    }
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    position: relative;
+    background-image: url("./images/background-image.png"), linear-gradient(to bottom right, #ffffff, #f0f0f0);
+    background-size: cover; /* Adjust this as needed */
+    background-position: center; /* Adjust this as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* border-radius: 10px; */
+}
+
     
     .profile {
         margin-bottom: 20px;
