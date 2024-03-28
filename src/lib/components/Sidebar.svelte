@@ -46,8 +46,8 @@
     padding: 20px;
     position: relative;
     background-image: url("./images/background-image.png"), linear-gradient(to bottom right, #ffffff, #f0f0f0);
-    background-size: cover; /* Adjust this as needed */
-    background-position: center; /* Adjust this as needed */
+    background-size: cover;
+    background-position: center; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     /* border-radius: 10px; */
 }
@@ -129,7 +129,11 @@
         color: #757575;
     }
 
-    @media (max-width: 768px) {
+    .email {
+    font-size: 14px; 
+}
+
+@media (max-width: 768px) {
         .sidebar {
             width: 100%;
             max-width: none;
