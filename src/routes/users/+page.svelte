@@ -57,6 +57,11 @@
 		margin-right: 10px;
 	}
 
+	.right p {
+		color: #ffc235;
+		font-size: larger;
+	}
+
 	.headerLine {
 		width: 100%;
 		height: 1px;
