@@ -43,6 +43,7 @@
 		
 	</div>
 	<button class="sign-out">Sign Out</button>
+	<a href="/login">Login / Logout</a>
 	<p class="version">Version 1.0.0</p>
 </div>
 
