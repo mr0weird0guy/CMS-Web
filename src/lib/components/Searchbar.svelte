@@ -1,6 +1,6 @@
-<script lang="ts">
+<script lang="js">
 	import Button from '$lib/components/Button.svelte';
-	export let text: any;
+	export let text= any;
 </script>
 
 <div class="searchBar">

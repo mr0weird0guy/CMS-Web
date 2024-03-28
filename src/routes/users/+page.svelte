@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="js">
 	import UserInfo from '$lib/components/UserInfo.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Searchbar from '$lib/components/Searchbar.svelte';
