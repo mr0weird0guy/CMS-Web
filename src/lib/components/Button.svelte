@@ -40,4 +40,10 @@
 	.success {
 		background-color: #27d76d;
 	}
+
+	.back {
+		background-color: white;
+		color: #ffc235;
+	}
+
 </style>

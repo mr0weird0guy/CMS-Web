@@ -14,14 +14,26 @@
 			<h3>Users</h3>
 		</div>
 		<div class="right">
-			<div></div>
-			<p>Back</p>
+			<Button variant="back"><span class="material-symbols-outlined">arrow_back</span>Back</Button>
 		</div>
 	</div>
 	<hr class="headerLine" />
 	<div class="items">
 		<Button variant="success"><span class="material-symbols-outlined"> add </span>Add</Button>
 		<Searchbar text="Search" />
+	</div>
+	<div class="popup">
+		<h1>AddFaculty</h1>
+		<hr class="line" />
+		<input type="text" placeholder="Name" class="input" />
+		<div class="email">
+			<input type="text" placeholder="Email" class="input" />
+			<p>@kristujayanti.com</p>
+		</div>
+		<div class="info">
+			<input type="text" placeholder="Select Department" class="input" />
+			<input type="text" placeholder="Select Clubs" class="input" />
+		</div>
 	</div>
 	<div class="title">
 		<h3>Name</h3>
@@ -57,9 +69,8 @@
 		margin-right: 10px;
 	}
 
-	.right p {
-		color: #ffc235;
-		font-size: larger;
+	.right span {
+		padding-right: 5px;
 	}
 
 	.headerLine {
@@ -85,5 +96,44 @@
 	}
 	.entries {
 		align-items: center;
+	}
+
+	.popup {
+		position: absolute;
+		top: 27%;
+		left: 35%;
+		background-color: rgb(98, 62, 62);
+		width: 50rem;
+		height: 25rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 10px;
+	}
+
+	.popup .line {
+		width: 100%;
+	}
+
+	.email {
+		width: 90%;
+		display: flex;
+		align-items: center;
+	}
+
+	.popup .input {
+		width: 90%;
+		padding: 10px;
+		margin: 10px 0;
+		border: none;
+		outline: none;
+		border-bottom: 1px solid #000;
+	}
+
+	.info {
+		width: 90%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 </style>
