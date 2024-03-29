@@ -1,7 +1,40 @@
-<script>
+<script lang="ts">
+	import firebase from 'firebase/compat/app';
+	import 'firebase/compat/auth';
+
+	export let clickHandler: any = () => {};
+
+	// Config constant from my project
+	// Android setup is not supported
+	const firebaseConfig = {
+		// Put the required config here
+		// Tsted with an example key
+	};
+
+	firebase.initializeApp(firebaseConfig);
+
+	// Reactive variables to store input values
+	let username = '';
+	let password = '';
+
+	// Function to handle login
+	async function handleLogin() {
+		try {
+			// Authenticate with Firebase using email and password
+			const userCredential = await firebase.auth().signInWithEmailAndPassword(username, password);
+			const user = userCredential.user;
+			console.log('User logged in:', user);
+			// Call clickHandler if login successful
+			clickHandler();
+		} catch (error) {
+			// Handle login errors
+			console.error('Login error:', error.message);
+		}
+	}
 </script>
 
 <div class="main">
+	<!--Exlipse images for the background-->
 	<img src="./loginImg/Ellipse1.png" class="e1" alt="Ellipse1" />
 	<img src="./loginImg/Ellipse2.png" class="e2" alt="Ellipse2" />
 	<img src="./loginImg/Ellipse3.png" class="e3" alt="Ellipse3" />
@@ -15,10 +48,10 @@
 		</div>
 		<div class="inputs">
 			<p>User Name/Email</p>
-			<input type="text" />
+			<input type="text" bind:value={username} placeholder="Enter your username" />
 			<p>Password</p>
-			<input type="password" />
-			<button class="btnlog">Login</button>
+			<input type="password" bind:value={password} placeholder="Enter your password" />
+			<button class="btnlog" on:click={handleLogin}>Login</button>
 			<button class="btnabt">About</button>
 		</div>
 		<p class="version">version 1.0.0</p>
@@ -110,7 +143,6 @@
 		flex-direction: column;
 		align-items: center;
 	}
-
 	.heads {
 		display: flex;
 		flex-direction: column;
