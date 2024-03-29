@@ -22,13 +22,21 @@
 		background: #f5f5f5;
 		outline: none;
 		border: none;
-		border-radius: 10px;
+		border-radius: 20px; 	/* border radius thora increse++ */
 		padding: 0 3.5rem 0 1.5rem;
 		font-size: 1rem;
 	}
-
 	.searchBar span {
 		font-size: 1.5rem;
 		margin-right: 0.5rem;
+	}
+	
+	/* change search querry place holder and add some focus */
+	#searchQueryInput::placeholder {
+		color: #999; 
+	}
+
+	#searchQueryInput:focus {
+		box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); 
 	}
 </style>

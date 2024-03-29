@@ -11,22 +11,24 @@
 		height: 40px;
 		border-radius: 10px;
 		border: none;
-		font-size: 20px;
+		font-size: 16px; /* Now looks better */
 		cursor: pointer;
 		color: #fff;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		transition: background-color 0.3s ease; /* Smooth transition for background color */
+	}
+
+	/* Standardizing the size and padding of all variants */
+	.search, .primary, .danger, .success {
+		width: 110px;
+		height: 40px;
+		padding: 0 10px;
 	}
 
 	.search {
 		background-color: #1d4ed8;
-		width: 50%;
-		height: 2.8rem;
-		margin-left: -3.5rem;
-		padding: 5px;
-		border: none;
-		outline: none;
 	}
 
 	.primary {
@@ -39,5 +41,10 @@
 
 	.success {
 		background-color: #27d76d;
+	}
+	
+	/* I add a hover effect */
+	button:hover {
+		opacity: 0.9; /* Adjust some opacity on hover :) */
 	}
 </style>
