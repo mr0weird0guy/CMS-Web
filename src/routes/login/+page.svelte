@@ -1,16 +1,11 @@
 <script lang="ts">
 	import firebase from 'firebase/compat/app';
 	import 'firebase/compat/auth';
+	import { firebaseConfig } from './firebaseConfig';
 
 	export let clickHandler: any = () => {};
 
-	// Config constant from my project
-	// Android setup is not supported
-	const firebaseConfig = {
-		// Put the required config here
-		// Tsted with an example key
-	};
-
+	// Config abstraction
 	firebase.initializeApp(firebaseConfig);
 
 	// Reactive variables to store input values
@@ -67,14 +62,14 @@
 	}
 	.e2 {
 		position: absolute;
-		left: 0;
+		left: 1;
 		bottom: 0;
 		z-index: -1;
 	}
 	.e1 {
 		position: absolute;
 		top: 0;
-		left: 0;
+		left: 1;
 		z-index: -1;
 	}
 	.version {
