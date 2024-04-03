@@ -6,7 +6,7 @@
 </script>
 
 <main>
-	<div class="header">
+	 <div class="header">
 		<div class="left">
 			<span class="material-symbols-outlined">account_circle</span>
 			<h3>Users</h3>
@@ -19,7 +19,7 @@
 	<div class="items">
 		<Button variant="success"><span class="material-symbols-outlined"> add </span>Add</Button>
 		<Searchbar text="Search" />
-	</div>
+	</div> 
 	<div class="popup">
 		<p class="h">AddFaculty</p>
 		<hr class="line" />
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="title">
+	 <div class="title">
 		<h3>Name</h3>
 		<h3>Email</h3>
 		<h3>Department</h3>
@@ -46,7 +46,7 @@
 	<div class="entries">
 		<UserInfo name="user" no={1} department="Computer Science" email="user@kristujayanti.com" />
 		<UserInfo name="user" no={2} department="Computer Science" email="user@kristujayanti.com" />
-	</div>
+	</div> 
 </main>
 
 <style>
@@ -108,7 +108,7 @@
 		font-size: 37px;
 	}
 	.popup {
-		position: absolute;
+		position: fixed;
 		top: 27%;
 		left: 35%;
 		background-color: whitesmoke;
