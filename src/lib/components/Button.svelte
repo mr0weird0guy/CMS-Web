@@ -47,4 +47,17 @@
 	button:hover {
 		opacity: 0.9; /* Adjust some opacity on hover :) */
 	}
+
+	.back {
+		background-color: white;
+		color: #ffc235;
+	}
+
+	.login {
+		background-color: #4c76c5;
+	}
+
+	.about {
+		background-color: #f8eb72;
+	}
 </style>
