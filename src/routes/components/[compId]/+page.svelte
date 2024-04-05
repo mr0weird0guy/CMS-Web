@@ -45,20 +45,20 @@
 
 	<div class="left-box">
 		<div class="details">
-			<label>Name:</label>
-			<input type="text" bind:value={componentName} readonly={!isEditMode} />
+			<label for="name">Name:</label>
+			<input type="text" name="name" bind:value={componentName} readonly={!isEditMode} />
 		</div>
 		<div class="details">
-			<label>Model:</label>
-			<input type="text" bind:value={componentModel} readonly={!isEditMode} />
+			<label for="model">Model:</label>
+			<input type="text" name="model" bind:value={componentModel} readonly={!isEditMode} />
 		</div>
 		<div class="details">
-			<label>Price:</label>
-			<input type="text" bind:value={componentPrice} readonly={!isEditMode} />
+			<label for="price">Price:</label>
+			<input type="text" name="price" bind:value={componentPrice} readonly={!isEditMode} />
 		</div>
 		<div class="details">
-			<label>Quantity:</label>
-			<input type="text" bind:value={componentQuantity} readonly={!isEditMode} />
+			<label for="quantity">Quantity:</label>
+			<input type="text" name="quantity" bind:value={componentQuantity} readonly={!isEditMode} />
 		</div>
 	</div>
 
