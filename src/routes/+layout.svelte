@@ -11,5 +11,7 @@
 	.app {
 		display: flex;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		overflow-y: hidden;
 	}
+
 </style>

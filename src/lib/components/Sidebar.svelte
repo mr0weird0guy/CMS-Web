@@ -7,6 +7,8 @@
 	import profile from '$lib/assets/profile-picture.png';
 </script>
 
+<div class="wrapper">
+
 <div class="sidebar">
 	<div class="menu">
 		<div class="profile-info">
@@ -45,8 +47,13 @@
 	<!-- <a href="/login">Login / Logout</a> -->
 	<p class="version">Version 1.0.0</p>
 </div>
+</div>
 
 <style>
+	.wrapper {
+		display: flex;
+		margin-right: 300px;
+	}
 	.sidebar {
 		width: 100%;
 		max-width: 300px;
@@ -58,12 +65,13 @@
 		align-items: center;
 		/* border: 1px solid #e0e0e0; */
 		padding: 20px;
-		position: relative;
-		background-image: url('images/background-image.png'),
+		position: fixed;
+		background-image: url('./images/background-image.png'),
 			linear-gradient(to bottom right, #ffffff, #f0f0f0);
-		background-size: cover;
+		background-size: fill;
 		background-position: center;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		z-index: 1000;
 		/* border-radius: 10px; */
 	}
 

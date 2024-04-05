@@ -12,6 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@rollup/plugin-replace": "^5.0.5",
 		"@sveltejs/adapter-auto": "^3.1.1",
 		"@sveltejs/kit": "^2.5.2",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
@@ -26,7 +27,7 @@
 		"svelte": "^4.2.12",
 		"svelte-check": "^3.6.6",
 		"tslib": "^2.6.2",
-		"typescript": "^5.4.2",
+		"typescript": "^5.4.3",
 		"vite": "^5.1.5"
 	},
 	"type": "module",
