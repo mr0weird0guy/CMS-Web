@@ -1,9 +1,9 @@
-<script lang="ts">
+<script lang="js">
 	import Button from '$lib/components/Button.svelte';
-	export let no: number;
-	export let name: String;
-	export let email: String;
-	export let department: String;
+	export let no= number;
+	export let name= String;
+	export let email= String;
+	export let department= String;
 </script>
 
 <div class="user-card">

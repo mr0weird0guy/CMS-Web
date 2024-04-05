@@ -1,10 +1,10 @@
 <script>
-	let user = './images/user-icon.png';
-	let history = './images/history-icon.png';
-	let about = './images/about-icon.png';
-	let home = './images/home-icon.png';
-	let profile = './images/profile-picture.png';
-	let background = './images/background-image.png';
+	// let user = './images/user-icon.png';
+	import user from '$lib/assets/user-icon.png';
+	import history from '$lib/assets/history-icon.png';
+	import about from '$lib/assets/about-icon.png';
+	import home from '$lib/assets/home-icon.png';
+	import profile from '$lib/assets/profile-picture.png';
 </script>
 
 <div class="sidebar">
@@ -36,13 +36,13 @@
 			History
 		</a>
 
-		<a  class="navlink" href="/about">
-				<img src={about} alt="About" class="icon" />
-				About
-			</a>
-		
+		<a class="navlink" href="/about">
+			<img src={about} alt="About" class="icon" />
+			About
+		</a>
 	</div>
 	<button class="sign-out">Sign Out</button>
+	<!-- <a href="/login">Login / Logout</a> -->
 	<p class="version">Version 1.0.0</p>
 </div>
 
@@ -59,7 +59,7 @@
 		/* border: 1px solid #e0e0e0; */
 		padding: 20px;
 		position: relative;
-		background-image: url('./images/background-image.png'),
+		background-image: url('images/background-image.png'),
 			linear-gradient(to bottom right, #ffffff, #f0f0f0);
 		background-size: cover;
 		background-position: center;
@@ -114,7 +114,7 @@
 	}
 
 	.menu a:hover {
-		background-color: #CEDEFF;
+		background-color: #cedeff;
 	}
 
 	.icon {

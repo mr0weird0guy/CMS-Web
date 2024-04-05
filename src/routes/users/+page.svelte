@@ -1,10 +1,8 @@
-<script lang="ts">
+<script lang="js">
 	import UserInfo from '$lib/components/UserInfo.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Searchbar from '$lib/components/Searchbar.svelte';
-	function deleteUser(id: string) {
-		// Do firebase Code to delete the user Id
-	}
+	
 </script>
 
 <main>
@@ -14,14 +12,31 @@
 			<h3>Users</h3>
 		</div>
 		<div class="right">
-			<div></div>
-			<p>Back</p>
+			<Button variant="back"><span class="material-symbols-outlined">arrow_back</span>Back</Button>
 		</div>
 	</div>
 	<hr class="headerLine" />
 	<div class="items">
 		<Button variant="success"><span class="material-symbols-outlined"> add </span>Add</Button>
 		<Searchbar text="Search" />
+	</div>
+	<div class="popup">
+		<p class="h">AddFaculty</p>
+		<hr class="line" />
+		<div class="inputs">
+			<input type="text" placeholder="Name" class="input" />
+			<div class="email">
+				<input type="text" placeholder="Email" class="input" />
+				<p>@kristujayanti.com</p>
+			</div>
+			<div class="info">
+				<input type="text" placeholder="Select Department" class="input" />
+				<input type="text" placeholder="Select Clubs" class="input" />
+			</div>
+			<div class="popupbtn">
+				<Button variant="primary">Add</Button>
+			</div>
+		</div>
 	</div>
 	<div class="title">
 		<h3>Name</h3>
@@ -57,9 +72,8 @@
 		margin-right: 10px;
 	}
 
-	.right p {
-		color: #ffc235;
-		font-size: larger;
+	.right span {
+		padding-right: 5px;
 	}
 
 	.headerLine {
@@ -85,5 +99,70 @@
 	}
 	.entries {
 		align-items: center;
+	}
+
+	.popup .h {
+		padding: 5px;
+		position: relative;
+		left: -35%;
+		font-size: 37px;
+	}
+	.popup {
+		position: absolute;
+		top: 27%;
+		left: 35%;
+		background-color: whitesmoke;
+		width: 45rem;
+		height: 25rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 10px;
+		visibility: hidden;
+	}
+
+	.popup .line {
+		width: 100%;
+	}
+
+	.email {
+		width: 90%;
+		display: flex;
+		align-items: center;
+	}
+
+	.popup input {
+		width: 90%;
+		height: 25px;
+		padding: 10px;
+		border-radius: 5px;
+		font-size: 20px;
+		border: none;
+		outline: none;
+	}
+
+	.popup .input {
+		margin: 10px;
+		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+	}
+
+	.inputs {
+		width: 95%;
+		height: 100%;
+		font-size: 25px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
+	.info {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.popupbtn {
+		position: relative;
+		right: -80%;
 	}
 </style>
