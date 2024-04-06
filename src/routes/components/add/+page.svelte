@@ -20,13 +20,25 @@
 		let componentQuantity = '';
 
 		function handleImageChange(event) {
-			const file = event.target.files[0];
-			const reader = new FileReader();
-			reader.onload = () => {
-				componentImage = reader.result;
-			};
-			reader.readAsDataURL(file);
-		}
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = () => {
+            const img = new Image();
+            img.onload = function () {
+                if (this.width === this.height) {
+                    componentImage = reader.result;
+                } else {
+                    alert(`Please upload a square-shaped image ${ this.width} ,${this.height}`);
+					return;
+                }
+            };
+            img.src = reader.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+
 
 		function handleSave() {
 			dispatch('save', {
@@ -120,7 +132,7 @@
 
 			<div class="buttons">
 				<button class="save-btn" on:click={handleSave}>Save</button>
-				<button class="cancel-btn" on:click={handleCancel}>Cancel</button>
+				<button class="cancel-btn" on:click={handleCancel}>Clear</button>
 			</div>
 		</div>
 	</main>
