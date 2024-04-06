@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 
-	let componentimg = './addCompoImgs/compoimg1.png';
+	let componentimg = '/addCompoImgs/compoimg1.png';
 	let isEditMode = false;
 	let componentName = '';
 	let componentModel = '';

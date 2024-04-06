@@ -44,7 +44,6 @@
 		</a>
 	</div>
 	<button class="sign-out">Sign Out</button>
-	<!-- <a href="/login">Login / Logout</a> -->
 	<p class="version">Version 1.0.0</p>
 </div>
 </div>
@@ -66,8 +65,7 @@
 		/* border: 1px solid #e0e0e0; */
 		padding: 20px;
 		position: fixed;
-		background-image: url('./images/background-image.png'),
-			linear-gradient(to bottom right, #ffffff, #f0f0f0);
+		background-image: url('/images/background-image.png'), linear-gradient(to bottom right, #ffffff, #f0f0f0);
 		background-size: fill;
 		background-position: center;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
