@@ -12,6 +12,8 @@
 	import { createEventDispatcher } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 
+	let val;
+
 	const dispatch = createEventDispatcher();
 	let componentImage = '';
 	let componentName = '';
@@ -20,6 +22,7 @@
 	let componentQuantity = '';
 
 	function handleImageChange(event) {
+		val = event.target.files;
 		const file = event.target.files[0];
 		const reader = new FileReader();
 
@@ -50,11 +53,13 @@
 	}
 
 	function handleCancel() {
+		//Reset the input filed lol
 		componentImage = '';
 		componentName = '';
 		componentModel = '';
 		componentPrice = '';
 		componentQuantity = '';
+		val = [];
 	}
 </script>
 
@@ -74,13 +79,15 @@
 		<div class="input-group">
 			<label for="component-image">Upload Component Image:</label>
 			<div class="component-image">
-				<input type="file" id="component-image" on:change={handleImageChange} />
 				{#if componentImage}
 					<img
 						src={componentImage}
 						alt="Uploaded Component Image"
 						style="width: 300px; height: 247px;object-fit: cover;  border-radius: 5px;"
 					/>
+				{/if}
+				{#if !componentImage}
+					<input type="file" id="component-image" on:change={handleImageChange} />
 				{/if}
 			</div>
 
@@ -203,7 +210,7 @@
 
 	.component-image:hover {
 		/* border shadow */
-		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0,0.5);
+		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 	}
 
 	.component-image input {

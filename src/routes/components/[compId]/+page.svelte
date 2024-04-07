@@ -75,9 +75,6 @@
 	main {
 		width: 100vw;
 		overflow-y: scroll;
-		/* height: 100vh; */
-		/* background: red; */
-		/* background-color: bisque; */
 	}
 
 	.header {
@@ -86,17 +83,14 @@
 		width: 100%;
 		padding: 20px;
 		box-sizing: border-box;
-		/* background-color: aqua; */
 	}
 	.header h3 {
-		/* color: white; */
 		font-size: 30px;
 	}
 
 	.imgbox {
 		width: 343px;
 		height: 237px;
-		/* background-color: red; */
 		margin-left: 32%;
 		margin-top: 10px;
 		border: 1px solid #ffffff;
@@ -120,10 +114,8 @@
 	.left-box {
 		width: 266px;
 		height: 280px;
-		/* background-color: red; */
 		margin-top: 3%;
 		margin-left: 180px;
-		/* gap: 20px; */
 		float: left;
 	}
 	
@@ -133,7 +125,6 @@
 		float: right;
 		margin-top: 2%;
 		margin-right: 180px;
-		/* background-color: red; */
 	}
 
 	#updatebox {
@@ -141,14 +132,12 @@
 		height: 156px;
 		display: flex;
 		justify-content: center;
-		/* background-color: rgb(67, 37, 59); */
 	}
 	#historybox {
 		width: 100%;
 		height: 187px;
 		display: flex;
 		justify-content: center;
-		/* background-color: rgb(92, 148, 129); */
 	}
 
 	.right-box .update-btn {
@@ -193,10 +182,9 @@
 	}
 
 	.footer-buttons {
-		display: flex; /* Change to flex to enable side-by-side positioning */
-		justify-content: center; /* Align buttons horizontally */
-		align-items: center; /* Center items vertically */
-		/* background-color: #3eba70; */
+		display: flex; 
+		justify-content: center;
+		align-items: center;
 		height: 100px;
 		width: 900px;
 		margin-top: 30%;
@@ -204,18 +192,17 @@
 
 	.save-button,
 	.delete-button {
-		width: 209px; /* Each button takes 50% width */
+		width: 209px; 
 		text-align: center;
 		margin-top: 10px;
 	}
 
 	.save-button {
-		margin-right: 5px; /* Add some space between buttons */
+		margin-right: 5px;
 	}
 
 	.delete-button {
 		margin-left: 200px;
-		/* background-color: #997f22; Adjust delete button background color */
 	}
 
 	.save-btn,

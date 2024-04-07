@@ -27,7 +27,6 @@
     }
   
     input[type='text'] {
-		/* width: calc(100% - 20px);  */
 		width: 150px;
 		height: 30px;
 		padding: 5px 10px;
