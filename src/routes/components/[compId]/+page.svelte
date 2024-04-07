@@ -5,6 +5,7 @@
 	let componentId = $page.params.compId;
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
+	import InputField from '$lib/components/InputField.svelte';
 
 	let componentimg = '/addCompoImgs/compoimg1.png';
 	let isEditMode = false;
@@ -44,28 +45,15 @@
 	</div>
 
 	<div class="left-box">
-		<div class="details">
-			<label for="name">Name:</label>
-			<input type="text" name="name" bind:value={componentName} readonly={!isEditMode} />
-		</div>
-		<div class="details">
-			<label for="model">Model:</label>
-			<input type="text" name="model" bind:value={componentModel} readonly={!isEditMode} />
-		</div>
-		<div class="details">
-			<label for="price">Price:</label>
-			<input type="text" name="price" bind:value={componentPrice} readonly={!isEditMode} />
-		</div>
-		<div class="details">
-			<label for="quantity">Quantity:</label>
-			<input type="text" name="quantity" bind:value={componentQuantity} readonly={!isEditMode} />
-		</div>
-	</div>
-
+		<InputField label="Name" bind:value={componentName} readonly={!isEditMode} />
+		<InputField label="Model" bind:value={componentModel} readonly={!isEditMode} />
+		<InputField label="Price" bind:value={componentPrice} readonly={!isEditMode} />
+		<InputField label="Quantity" bind:value={componentQuantity} readonly={!isEditMode} />
+	  </div>
 	<div class="right-box">
 		<div id="updatebox">
 			{#if !isEditMode}
-				<button class="update-btn" on:click={handleUpdateClick}>Update</button>
+				<button class="update-btn" on:click={handleUpdateClick}>Edit</button>
 			{/if}
 		</div>
 		<div id="historybox"><button class="hisory-button">History</button></div>
@@ -138,22 +126,7 @@
 		/* gap: 20px; */
 		float: left;
 	}
-
-	.details {
-		width: 266px;
-		height: 45px;
-		/* background-color: #386e37; */
-		border-radius: 5px;
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-
-		margin-bottom: 33px;
-		padding: 10px;
-		box-sizing: border-box;
-	}
-	.details:hover {
-		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-	}
-
+	
 	.right-box {
 		width: 338px;
 		height: 367px;
@@ -268,35 +241,5 @@
 		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 	}
 
-	.details {
-		width: 100%;
-		height: auto;
-		margin-bottom: 20px;
-		padding: 10px;
-		box-sizing: border-box;
-		border-radius: 5px;
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-		background-color: #f5f5f5;
-	}
-
-	label {
-		font-weight: bold;
-		margin-bottom: 5px;
-	}
-
-	input[type='text'] {
-		/* width: calc(100% - 20px);  */
-		width: 150px;
-		height: 30px;
-		padding: 5px 10px;
-		border: none;
-		border-radius: 3px;
-		background-color: #f5f5f5;
-		color: #333;
-		box-sizing: border-box;
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 1.5;
-		outline: none; /* Remove outline on focus */
-	}
+	
 </style>
