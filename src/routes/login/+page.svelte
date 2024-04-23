@@ -1,12 +1,8 @@
-<script lang="ts">
-	import firebase from 'firebase/compat/app';
-	import 'firebase/compat/auth';
-	import { firebaseConfig } from './firebaseConfig';
+<script>
+	import {signInWithEmailAndPassword} from "firebase/auth"
+	import { auth } from '$lib/firebaseConfig.js';
 
-	export let clickHandler: any = () => {};
-
-	// Config abstraction
-	firebase.initializeApp(firebaseConfig);
+	let clickHandler = () => {};
 
 	// Reactive variables to store input values
 	let username = '';
@@ -16,7 +12,7 @@
 	async function handleLogin() {
 		try {
 			// Authenticate with Firebase using email and password
-			const userCredential = await firebase.auth().signInWithEmailAndPassword(username, password);
+			const userCredential = await signInWithEmailAndPassword(auth, username, password);
 			const user = userCredential.user;
 			console.log('User logged in:', user);
 			// Call clickHandler if login successful
@@ -46,6 +42,7 @@
 			<input type="text" bind:value={username} placeholder="Enter your username" />
 			<p>Password</p>
 			<input type="password" bind:value={password} placeholder="Enter your password" />
+
 			<button class="btnlog" on:click={handleLogin}>Login</button>
 			<button class="btnabt">About</button>
 		</div>

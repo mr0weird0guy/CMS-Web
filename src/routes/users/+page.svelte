@@ -2,6 +2,15 @@
 	import UserInfo from '$lib/components/UserInfo.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Searchbar from '$lib/components/Searchbar.svelte';
+	import { onMount } from 'svelte';
+
+	let users = [];
+
+
+	onMount(() => {
+		// Fetch data from firebase using Joe's functions
+		users = [...data]
+	})
 	
 </script>
 
