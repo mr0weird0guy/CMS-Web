@@ -1,61 +1,67 @@
-<script lang="js">
-	import UserInfo from '$lib/components/UserInfo.svelte';
-	import Button from '$lib/components/Button.svelte';
-	import Searchbar from '$lib/components/Searchbar.svelte';
-	import { onMount } from 'svelte';
+<script>
+    import UserInfo from '$lib/components/UserInfo.svelte';
+    import Button from '$lib/components/Button.svelte';
+    import Searchbar from '$lib/components/Searchbar.svelte';
+    import { onMount } from 'svelte';
 
-	let users = [];
+    let users = [];
+    let popupVisible = false;
 
+    onMount(() => {
+        // Fetch data from firebase using Joe's functions
+        users = [...data];
+    });
 
-	onMount(() => {
-		// Fetch data from firebase using Joe's functions
-		users = [...data]
-	})
-	
+    function togglePopup() {
+        popupVisible = !popupVisible;
+    }
 </script>
 
 <main>
-	 <div class="header">
-		<div class="left">
-			<span class="material-symbols-outlined">account_circle</span>
-			<h3>Users</h3>
-		</div>
-		<div class="right">
-			<Button variant="back"><span class="material-symbols-outlined">arrow_back</span>Back</Button>
-		</div>
-	</div>
-	<hr class="headerLine" />
-	<div class="items">
-		<Button variant="success"><span class="material-symbols-outlined"> add </span>Add</Button>
-		<Searchbar text="Search" />
-	</div> 
-	<div class="popup">
-		<p class="h">AddFaculty</p>
-		<hr class="line" />
-		<div class="inputs">
-			<input type="text" placeholder="Name" class="input" />
-			<div class="email">
-				<input type="text" placeholder="Email" class="input" />
-				<p>@kristujayanti.com</p>
-			</div>
-			<div class="info">
-				<input type="text" placeholder="Select Department" class="input" />
-				<input type="text" placeholder="Select Clubs" class="input" />
-			</div>
-			<div class="popupbtn">
-				<Button variant="primary">Add</Button>
-			</div>
-		</div>
-	</div>
-	 <div class="title">
-		<h3>Name</h3>
-		<h3>Email</h3>
-		<h3>Department</h3>
-	</div>
-	<div class="entries">
-		<UserInfo name="user" no={1} department="Computer Science" email="user@kristujayanti.com" />
-		<UserInfo name="user" no={2} department="Computer Science" email="user@kristujayanti.com" />
-	</div> 
+    <div class="header">
+        <div class="left">
+            <span class="material-symbols-outlined">account_circle</span>
+            <h3>Users</h3>
+        </div>
+        <div class="right">
+            <Button variant="back"><span class="material-symbols-outlined">arrow_back</span>Back</Button>
+        </div>
+    </div>
+    <hr class="headerLine" />
+    <div class="items">
+        <Button variant="success" clickHandler={togglePopup}><span class="material-symbols-outlined"> add </span>Add</Button>
+        <Searchbar text="Search" />
+    </div> 
+    {#if popupVisible}
+    <div class="popup">
+        <p class="h">AddFaculty</p>
+        <hr class="line" />
+        <div class="inputs">
+            <input type="text" placeholder="Name" class="input" />
+            <div class="email">
+                <input type="text" placeholder="Email" class="input" />
+                <p>@kristujayanti.com</p>
+            </div>
+            <div class="info">
+                <input type="text" placeholder="Select Department" class="input" />
+                <input type="text" placeholder="Select Clubs" class="input" />
+            </div>
+            <div class="popupbtn">
+                <Button variant="primary" on:click={togglePopup}>Add</Button>
+            </div>
+        </div>
+    </div>
+    {/if}
+    <div class="title">
+        <h3>Name</h3>
+        <h3>Email</h3>
+        <h3>Department</h3>
+    </div>
+    <div class="entries">
+        {#each users as user, index}
+            <UserInfo name={user.name} no={index + 1} department={user.department} email={user.email} />
+        {/each}
+    </div> 
 </main>
 
 <style>
@@ -127,8 +133,8 @@
 		flex-direction: column;
 		align-items: center;
 		border-radius: 10px;
-		visibility: hidden;
 	}
+
 
 	.popup .line {
 		width: 100%;
