@@ -32,26 +32,32 @@
         <Button variant="success" clickHandler={togglePopup}><span class="material-symbols-outlined"> add </span>Add</Button>
         <Searchbar text="Search" />
     </div> 
-    {#if popupVisible}
-    <div class="popup">
-        <p class="h">AddFaculty</p>
-        <hr class="line" />
-        <div class="inputs">
-            <input type="text" placeholder="Name" class="input" />
-            <div class="email">
-                <input type="text" placeholder="Email" class="input" />
-                <p>@kristujayanti.com</p>
-            </div>
-            <div class="info">
-                <input type="text" placeholder="Select Department" class="input" />
-                <input type="text" placeholder="Select Clubs" class="input" />
-            </div>
-            <div class="popupbtn">
-                <Button variant="primary" on:click={togglePopup}>Add</Button>
-            </div>
-        </div>
-    </div>
-    {/if}
+	<div class="blur-overlay" style="display: {popupVisible ? 'block' : 'none'}"></div>
+	<div class="popup-container">
+		{#if popupVisible}
+		<div class="popup">
+			<div class="headcontainer">
+				<p class="h">AddFaculty</p>
+				<Button variant="back" clickHandler={togglePopup}><span class="material-symbols-outlined">arrow_back</span>Back</Button>
+			</div>
+			<hr class="line" />
+			<div class="inputs">
+				<input type="text" placeholder="Name" class="input" />
+				<div class="email">
+					<input type="text" placeholder="Email" class="input" />
+					<p>@kristujayanti.com</p>
+				</div>
+				<div class="info">
+					<input type="text" placeholder="Select Department" class="input" />
+					<input type="text" placeholder="Select Clubs" class="input" />
+				</div>
+				<div class="popupbtn">
+					<Button variant="primary" clickHandler={togglePopup}>Add</Button>
+				</div>
+			</div>
+		</div>
+		{/if}
+	</div>
     <div class="title">
         <h3>Name</h3>
         <h3>Email</h3>
@@ -119,14 +125,43 @@
 	.popup .h {
 		padding: 5px;
 		position: relative;
-		left: -35%;
+		
 		font-size: 37px;
 	}
+
+	.blur-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+        backdrop-filter: blur(8px); /* Adjust the blur radius as needed */
+        z-index: 999; /* Ensure it's above other content */
+    }
+
+	.popup-container {
+        position: fixed;
+        top: 30%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        z-index: 1000; /* Ensure it's above the backdrop */
+    }
+
+	.headcontainer{
+		width: 100%;
+		display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+	}
+
 	.popup {
 		position: fixed;
 		top: 27%;
 		left: 35%;
-		background-color: whitesmoke;
+		background-color: white;
 		width: 45rem;
 		height: 25rem;
 		display: flex;
