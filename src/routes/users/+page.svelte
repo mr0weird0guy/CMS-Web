@@ -3,15 +3,24 @@
     import Button from '$lib/components/Button.svelte';
     import Searchbar from '$lib/components/Searchbar.svelte';
     import { onMount } from 'svelte';
+	// import firebase from 'firebase/app';
+	import 'firebase/firestore';
+	import { firebaseConfig } from '$lib/firebaseConfig';
 
     let users = [];
-    let popupVisible = false;
+	// // Initialize Firebase
+    // firebase.initializeApp(firebaseConfig);
+    // const db = firebase.firestore();
+    
 
-    onMount(() => {
-        // Fetch data from firebase using Joe's functions
-        users = [...data];
-    });
+    // onMount(async () => {
+    //     // Fetch data from Firebase
+    //     const querySnapshot = await db.collection('users').get();
+    //     users = querySnapshot.docs.map(doc => doc.data());
+    // });
 
+	//Hide and show popup
+	let popupVisible = false;
     function togglePopup() {
         popupVisible = !popupVisible;
     }
