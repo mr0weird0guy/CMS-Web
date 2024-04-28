@@ -19,10 +19,32 @@
     //     users = querySnapshot.docs.map(doc => doc.data());
     // });
 
+
+	// Variables to store input values
+	let name = '';
+    let email = '';
+    let department = '';
+    let clubs = '';
+
 	//Hide and show popup
 	let popupVisible = false;
     function togglePopup() {
         popupVisible = !popupVisible;
+    }
+	// Function to handle form submission
+	function handleSubmit() {
+    // Perform validation and save data to Firestore or perform other actions
+	    console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Department:', department);
+        console.log('Clubs:', clubs);
+		popupVisible = !popupVisible;
+
+        // Clear input fields after submission (optional)
+        name = '';
+        email = '';
+        department = '';
+        clubs = '';
     }
 </script>
 
@@ -51,17 +73,17 @@
 			</div>
 			<hr class="line" />
 			<div class="inputs">
-				<input type="text" placeholder="Name" class="input" />
+				<input type="text" placeholder="Name" class="input" bind:value={name} />
 				<div class="email">
-					<input type="text" placeholder="Email" class="input" />
+					<input type="text" placeholder="Email" class="input" bind:value={email}/>
 					<p>@kristujayanti.com</p>
 				</div>
 				<div class="info">
-					<input type="text" placeholder="Select Department" class="input" />
-					<input type="text" placeholder="Select Clubs" class="input" />
+					<input type="text" placeholder="Select Department" class="input" bind:value={department}/>
+					<input type="text" placeholder="Select Clubs" class="input" bind:value={clubs} />
 				</div>
 				<div class="popupbtn">
-					<Button variant="primary" clickHandler={togglePopup}>Add</Button>
+					<Button variant="primary" clickHandler={handleSubmit}>Add</Button>
 				</div>
 			</div>
 		</div>
