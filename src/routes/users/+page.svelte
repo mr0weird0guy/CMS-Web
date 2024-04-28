@@ -4,8 +4,8 @@
     import Searchbar from '$lib/components/Searchbar.svelte';
     import { onMount } from 'svelte';
 	// import firebase from 'firebase/app';
-	import 'firebase/firestore';
-	import { firebaseConfig } from '$lib/firebaseConfig';
+	// import 'firebase/firestore';
+	// import { firebaseConfig } from '$lib/firebaseConfig';
 
     let users = [];
 	// // Initialize Firebase
@@ -23,6 +23,7 @@
 	// Variables to store input values
 	let name = '';
     let email = '';
+	let emailDomain = '@kristujayanti.com';
     let department = '';
     let clubs = '';
 
@@ -33,14 +34,15 @@
     }
 	// Function to handle form submission
 	function handleSubmit() {
-    // Perform validation and save data to Firestore or perform other actions
+    	// Perform validation and save data to Firestore or perform other actions
 	    console.log('Name:', name);
-        console.log('Email:', email);
+        console.log('Email:', email + emailDomain);
         console.log('Department:', department);
         console.log('Clubs:', clubs);
+		// To close popup
 		popupVisible = !popupVisible;
 
-        // Clear input fields after submission (optional)
+        // Clear input fields after submission
         name = '';
         email = '';
         department = '';
@@ -76,7 +78,7 @@
 				<input type="text" placeholder="Name" class="input" bind:value={name} />
 				<div class="email">
 					<input type="text" placeholder="Email" class="input" bind:value={email}/>
-					<p>@kristujayanti.com</p>
+					<p>{emailDomain}</p>
 				</div>
 				<div class="info">
 					<input type="text" placeholder="Select Department" class="input" bind:value={department}/>
