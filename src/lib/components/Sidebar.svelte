@@ -5,6 +5,11 @@
 	import about from '$lib/assets/about-icon.png';
 	import home from '$lib/assets/home-icon.png';
 	import profile from '$lib/assets/profile-picture.png';
+	//Function to sign out the user
+	function signOut() {
+        // Navigate to the login page
+        window.location.href = '/login';
+    }
 </script>
 
 <div class="wrapper">
@@ -43,7 +48,7 @@
 			About
 		</a>
 	</div>
-	<button class="sign-out">Sign Out</button>
+	<button class="sign-out" on:click={signOut}>Sign Out</button>
 	<p class="version">Version 1.0.0</p>
 </div>
 </div>
