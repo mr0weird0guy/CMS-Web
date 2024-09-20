@@ -5,52 +5,55 @@
 	import about from '$lib/assets/about-icon.png';
 	import home from '$lib/assets/home-icon.png';
 	import profile from '$lib/assets/profile-picture.png';
+
+	export let name = '';
+	export let email = '';
+
 	//Function to sign out the user
 	function signOut() {
-        // Navigate to the login page
-        window.location.href = '/login';
-    }
+		// Navigate to the login page
+		window.location.href = '/login';
+	}
 </script>
 
 <div class="wrapper">
-
-<div class="sidebar">
-	<div class="menu">
-		<div class="profile-info">
-			<div class="profile">
-				<!-- dummy profile picture -->
-				<img src={profile} alt="Profile Picture" class="profile-picture" />
+	<div class="sidebar">
+		<div class="menu">
+			<div class="profile-info">
+				<div class="profile">
+					<!-- dummy profile picture -->
+					<img src={profile} alt="Profile Picture" class="profile-picture" />
+				</div>
+				<p class="username">{name}</p>
+				<p class="email">{email}</p>
 			</div>
-			<p class="username">Agnik Paul</p>
-			<p class="email">23phcs01@kristujayanti.com</p>
+
+			<!-- Class was applied to img -->
+			<!-- We need to apply a class to the anchor tag -->
+			<!-- :facepalm: -->
+
+			<a class="navlink" href="/home">
+				<img class="icon" src={home} alt="Home" />
+				Home
+			</a>
+
+			<a class="navlink" href="/users">
+				<img src={user} alt="Users" class="icon" />
+				Users
+			</a>
+			<a class="navlink" href="/history">
+				<img src={history} alt="History" class="icon" />
+				History
+			</a>
+
+			<a class="navlink" href="/about">
+				<img src={about} alt="About" class="icon" />
+				About
+			</a>
 		</div>
-
-		<!-- Class was applied to img -->
-		<!-- We need to apply a class to the anchor tag -->
-		<!-- :facepalm: -->
-
-		<a class="navlink" href="/home">
-			<img class="icon" src={home} alt="Home" />
-			Home
-		</a>
-
-		<a class="navlink" href="/users">
-			<img src={user} alt="Users" class="icon" />
-			Users
-		</a>
-		<a class="navlink" href="/history">
-			<img src={history} alt="History" class="icon" />
-			History
-		</a>
-
-		<a class="navlink" href="/about">
-			<img src={about} alt="About" class="icon" />
-			About
-		</a>
+		<button class="sign-out" on:click={signOut}>Sign Out</button>
+		<p class="version">Version 1.0.0</p>
 	</div>
-	<button class="sign-out" on:click={signOut}>Sign Out</button>
-	<p class="version">Version 1.0.0</p>
-</div>
 </div>
 
 <style>
@@ -70,7 +73,8 @@
 		/* border: 1px solid #e0e0e0; */
 		padding: 20px;
 		position: fixed;
-		background-image: url('/images/background-image.png'), linear-gradient(to bottom right, #ffffff, #f0f0f0);
+		background-image: url('/images/background-image.png'),
+			linear-gradient(to bottom right, #ffffff, #f0f0f0);
 		background-size: fill;
 		background-position: center;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

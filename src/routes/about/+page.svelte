@@ -3,5 +3,5 @@
 </script>
 
 <main>
-	<Header label="History" />
+	<Header label="About" />
 </main>

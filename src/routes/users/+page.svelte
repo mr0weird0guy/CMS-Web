@@ -1,106 +1,106 @@
 <script>
-    import UserInfo from '$lib/components/UserInfo.svelte';
-    import Button from '$lib/components/Button.svelte';
-    import Searchbar from '$lib/components/Searchbar.svelte';
-    import { onMount } from 'svelte';
+	import UserInfo from '$lib/components/UserInfo.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import Searchbar from '$lib/components/Searchbar.svelte';
+	import Header from '$lib/components/Header.svelte';
+
+	import { onMount } from 'svelte';
 	// import firebase from 'firebase/app';
 	// import 'firebase/firestore';
 	// import { firebaseConfig } from '$lib/firebaseConfig';
 
-    let users = [];
+	let users = [];
 	// // Initialize Firebase
-    // firebase.initializeApp(firebaseConfig);
-    // const db = firebase.firestore();
-    
+	// firebase.initializeApp(firebaseConfig);
+	// const db = firebase.firestore();
 
-    // onMount(async () => {
-    //     // Fetch data from Firebase
-    //     const querySnapshot = await db.collection('users').get();
-    //     users = querySnapshot.docs.map(doc => doc.data());
-    // });
-
+	// onMount(async () => {
+	//     // Fetch data from Firebase
+	//     const querySnapshot = await db.collection('users').get();
+	//     users = querySnapshot.docs.map(doc => doc.data());
+	// });
 
 	// Variables to store input values
 	let name = '';
-    let email = '';
+	let email = '';
 	let emailDomain = '@kristujayanti.com';
-    let department = '';
-    let clubs = '';
+	let department = '';
+	let clubs = '';
 
 	//Hide and show popup
 	let popupVisible = false;
-    function togglePopup() {
-        popupVisible = !popupVisible;
-    }
+	function togglePopup() {
+		popupVisible = !popupVisible;
+	}
 	// Function to handle form submission
 	function handleSubmit() {
-    	// Perform validation and save data to Firestore or perform other actions
-	    console.log('Name:', name);
-        console.log('Email:', email + emailDomain);
-        console.log('Department:', department);
-        console.log('Clubs:', clubs);
+		// Perform validation and save data to Firestore or perform other actions
+		console.log('Name:', name);
+		console.log('Email:', email + emailDomain);
+		console.log('Department:', department);
+		console.log('Clubs:', clubs);
 		// To close popup
 		popupVisible = !popupVisible;
 
-        // Clear input fields after submission
-        name = '';
-        email = '';
-        department = '';
-        clubs = '';
-    }
+		// Clear input fields after submission
+		name = '';
+		email = '';
+		department = '';
+		clubs = '';
+	}
 </script>
 
 <main>
-    <div class="header">
-        <div class="left">
-            <span class="material-symbols-outlined">account_circle</span>
-            <h3>Users</h3>
-        </div>
-        <div class="right">
-            <Button variant="back"><span class="material-symbols-outlined">arrow_back</span>Back</Button>
-        </div>
-    </div>
-    <hr class="headerLine" />
-    <div class="items">
-        <Button variant="success" clickHandler={togglePopup}><span class="material-symbols-outlined"> add </span>Add</Button>
-        <Searchbar text="Search" />
-    </div> 
+	<Header label="Users" />
+	<div class="items">
+		<Button variant="success" clickHandler={togglePopup}
+			><span class="material-symbols-outlined"> add </span>Add</Button
+		>
+		<Searchbar text="Search" />
+	</div>
 	<div class="blur-overlay" style="display: {popupVisible ? 'block' : 'none'}"></div>
 	<div class="popup-container">
 		{#if popupVisible}
-		<div class="popup">
-			<div class="headcontainer">
-				<p class="h">AddFaculty</p>
-				<Button variant="back" clickHandler={togglePopup}><span class="material-symbols-outlined">arrow_back</span>Back</Button>
+			<div class="popup">
+				<div class="headcontainer">
+					<p class="h">AddFaculty</p>
+					<Button variant="back" clickHandler={togglePopup}
+						><span class="material-symbols-outlined">arrow_back</span>Back</Button
+					>
+				</div>
+				<hr class="line" />
+				<div class="inputs">
+					<input type="text" placeholder="Name" class="input" bind:value={name} />
+					<div class="email">
+						<input type="text" placeholder="Email" class="input" bind:value={email} />
+						<p>{emailDomain}</p>
+					</div>
+					<div class="info">
+						<input
+							type="text"
+							placeholder="Select Department"
+							class="input"
+							bind:value={department}
+						/>
+						<input type="text" placeholder="Select Clubs" class="input" bind:value={clubs} />
+					</div>
+					<div class="popupbtn">
+						<Button variant="primary" clickHandler={handleSubmit}>Add</Button>
+					</div>
+				</div>
 			</div>
-			<hr class="line" />
-			<div class="inputs">
-				<input type="text" placeholder="Name" class="input" bind:value={name} />
-				<div class="email">
-					<input type="text" placeholder="Email" class="input" bind:value={email}/>
-					<p>{emailDomain}</p>
-				</div>
-				<div class="info">
-					<input type="text" placeholder="Select Department" class="input" bind:value={department}/>
-					<input type="text" placeholder="Select Clubs" class="input" bind:value={clubs} />
-				</div>
-				<div class="popupbtn">
-					<Button variant="primary" clickHandler={handleSubmit}>Add</Button>
-				</div>
-			</div>
-		</div>
 		{/if}
 	</div>
-    <div class="title">
-        <h3>Name</h3>
-        <h3>Email</h3>
-        <h3>Department</h3>
-    </div>
-    <div class="entries">
-        {#each users as user, index}
-            <UserInfo name={user.name} no={index + 1} department={user.department} email={user.email} />
-        {/each}
-    </div> 
+	<div class="title">
+		<h3>Name</h3>
+		<h3>Email</h3>
+		<h3>Department</h3>
+	</div>
+	<div class="entries">
+		{#each users as user, index}
+			<UserInfo name={user.name} no={index + 1} department={user.department} email={user.email} />
+		{/each}
+	</div>
 </main>
 
 <style>
@@ -158,36 +158,36 @@
 	.popup .h {
 		padding: 5px;
 		position: relative;
-		
+
 		font-size: 37px;
 	}
 
 	.blur-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
-        backdrop-filter: blur(8px); /* Adjust the blur radius as needed */
-        z-index: 999; /* Ensure it's above other content */
-    }
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+		backdrop-filter: blur(8px); /* Adjust the blur radius as needed */
+		z-index: 999; /* Ensure it's above other content */
+	}
 
 	.popup-container {
-        position: fixed;
-        top: 30%;
-        left: 40%;
-        transform: translate(-50%, -50%);
-        z-index: 1000; /* Ensure it's above the backdrop */
-    }
+		position: fixed;
+		top: 30%;
+		left: 40%;
+		transform: translate(-50%, -50%);
+		z-index: 1000; /* Ensure it's above the backdrop */
+	}
 
-	.headcontainer{
+	.headcontainer {
 		width: 100%;
 		display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        box-sizing: border-box;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px;
+		box-sizing: border-box;
 	}
 
 	.popup {
@@ -202,7 +202,6 @@
 		align-items: center;
 		border-radius: 10px;
 	}
-
 
 	.popup .line {
 		width: 100%;

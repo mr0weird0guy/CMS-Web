@@ -1,4 +1,3 @@
-
 <!-- <h1>You are viewing component: {componentId}</h1> -->
 <script>
 	import { page } from '$app/stores';
@@ -25,18 +24,11 @@
 	onMount(() => {
 		// Fetch data from Firebase and set component name to Firebase data
 	});
+	import Header from '$lib/components/Header.svelte';
 </script>
 
 <main>
-	<div class="header">
-		<div class="left">
-			<h3>{isEditMode ? 'Update Component' : 'Each Component'}</h3>
-		</div>
-		<div class="right">
-			<Button variant="back"><span class="material-symbols-outlined">arrow_back</span>Back</Button>
-		</div>
-	</div>
-	<hr class="headerLine" />
+	<Header label={isEditMode ? 'Update Component' : 'Each Component'} />
 
 	<div class="imgbox">
 		<div class="img-div">
@@ -49,7 +41,7 @@
 		<InputField label="Model" bind:value={componentModel} readonly={!isEditMode} />
 		<InputField label="Price" bind:value={componentPrice} readonly={!isEditMode} />
 		<InputField label="Quantity" bind:value={componentQuantity} readonly={!isEditMode} />
-	  </div>
+	</div>
 	<div class="right-box">
 		<div id="updatebox">
 			{#if !isEditMode}
@@ -118,7 +110,7 @@
 		margin-left: 180px;
 		float: left;
 	}
-	
+
 	.right-box {
 		width: 338px;
 		height: 367px;
@@ -182,7 +174,7 @@
 	}
 
 	.footer-buttons {
-		display: flex; 
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 100px;
@@ -192,7 +184,7 @@
 
 	.save-button,
 	.delete-button {
-		width: 209px; 
+		width: 209px;
 		text-align: center;
 		margin-top: 10px;
 	}
@@ -227,6 +219,4 @@
 		transform: translateY(-3px);
 		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 	}
-
-	
 </style>
