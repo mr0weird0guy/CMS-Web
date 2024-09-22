@@ -1,25 +1,21 @@
 <script>
-	import { signInWithEmailAndPassword } from 'firebase/auth';
-	import { auth } from '$lib/firebaseConfig.js';
-
-	let clickHandler = () => {
-		window.location.href = '/home';
-	};
+	import { authHandler, authStore } from '../../store/store';
 
 	// Reactive variables to store input values
-	let username = '';
+	let authenticating = false;
+	let email = '';
 	let password = '';
 
-	// Function to handle login
 	async function handleLogin() {
 		try {
-			// Authenticate with Firebase using email and password
-			const userCredential = await signInWithEmailAndPassword(auth, username, password);
-			const user = userCredential.user;
-			console.log('User logged in:', user);
-			document.cookie = `user=${user}`;
-			// Call clickHandler if login successful
-			clickHandler();
+			if (!email || !password) {
+				throw new Error('Email and password are required');
+			}
+			authenticating = true;
+			await authHandler.login(email, password);
+			document.cookie = `user=${authStore.user}`;
+			authenticating = false;
+			window.location.href = '/home';
 		} catch (error) {
 			// Handle login errors
 			console.error('Login error:', error.message);
@@ -40,14 +36,19 @@
 			<h1>Welcome to KJC</h1>
 			<h2 style="color: #FFC438;font-weight:500">Component Management System</h2>
 		</div>
-		<div class="login-form">
-			<p>User Name/Email</p>
-			<input type="text" bind:value={username} placeholder="Enter your username" />
+		<form class="login-form" autocomplete="on">
+			<p>User Email</p>
+			<input type="text" bind:value={email} autoComplete="true" placeholder="Enter your email" />
 			<p>Password</p>
-			<input type="password" bind:value={password} placeholder="Enter your password" />
+			<input
+				type="password"
+				bind:value={password}
+				autoComplete="true"
+				placeholder="Enter your password"
+			/>
 			<button class="btn btnlog" on:click={handleLogin}>Login</button>
 			<a href="/about"><button class="btn btnabt">About</button></a>
-		</div>
+		</form>
 		<p class="version">version 1.0.0</p>
 	</div>
 </div>

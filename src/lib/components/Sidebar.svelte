@@ -5,13 +5,14 @@
 	import about from '$lib/assets/about-icon.png';
 	import home from '$lib/assets/home-icon.png';
 	import profile from '$lib/assets/profile-picture.png';
+	import { authHandler } from '../../store/store';
 
-	export let name = '';
-	export let email = '';
+	export let email;
 
-	//Function to sign out the user
-	function signOut() {
+	// Function to sign out the user
+	async function signOut() {
 		// Navigate to the login page
+		await authHandler.logout();
 		window.location.href = '/login';
 	}
 </script>
@@ -21,10 +22,9 @@
 		<div class="menu">
 			<div class="profile-info">
 				<div class="profile">
-					<!-- dummy profile picture -->
+					<!-- svelte-ignore a11y-img-redundant-alt -->
 					<img src={profile} alt="Profile Picture" class="profile-picture" />
 				</div>
-				<p class="username">{name}</p>
 				<p class="email">{email}</p>
 			</div>
 
