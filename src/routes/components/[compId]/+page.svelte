@@ -1,17 +1,11 @@
 <!-- <h1>You are viewing component: {componentId}</h1> -->
 <script>
-	import { page } from '$app/stores';
-	let componentId = $page.params.compId;
+	export let component;
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import InputField from '$lib/components/InputField.svelte';
 
-	let componentimg = '/addCompoImgs/compoimg1.png';
 	let isEditMode = false;
-	let componentName = '';
-	let componentModel = '';
-	let componentPrice = '';
-	let componentQuantity = '';
 
 	function handleUpdateClick() {
 		isEditMode = true;
@@ -21,9 +15,9 @@
 		isEditMode = false;
 	}
 
-	onMount(() => {
-		// Fetch data from Firebase and set component name to Firebase data
-	});
+	function handleDelete() {
+		console.log('Delete button clicked');
+	}
 	import Header from '$lib/components/Header.svelte';
 </script>
 
@@ -32,15 +26,20 @@
 
 	<div class="imgbox">
 		<div class="img-div">
-			<img src={componentimg} alt="" />
+			<img src={component.Image} alt={component.Name} />
 		</div>
 	</div>
 
 	<div class="left-box">
-		<InputField label="Name" bind:value={componentName} readonly={!isEditMode} />
-		<InputField label="Model" bind:value={componentModel} readonly={!isEditMode} />
-		<InputField label="Price" bind:value={componentPrice} readonly={!isEditMode} />
-		<InputField label="Quantity" bind:value={componentQuantity} readonly={!isEditMode} />
+		<InputField label="Name" bind:value={component.Name} readonly={!isEditMode} />
+		<InputField label="Model" bind:value={component.Model} readonly={!isEditMode} />
+		<InputField label="Price" bind:value={component.Price} readonly={!isEditMode} />
+		<InputField label="Quantity" bind:value={component.Quantity} readonly={!isEditMode} />
+		<InputField
+			label="Available Quantity"
+			bind:value={component.AvailableQuantity}
+			readonly={!isEditMode}
+		/>
 	</div>
 	<div class="right-box">
 		<div id="updatebox">
@@ -58,7 +57,7 @@
 			</div>
 		{/if}
 		<div class="delete-button">
-			<button class="delete-btn" id="DELETE-btn">Delete</button>
+			<button class="delete-btn" on:click={handleDelete} id="DELETE-btn">Delete</button>
 		</div>
 	</div>
 </main>
