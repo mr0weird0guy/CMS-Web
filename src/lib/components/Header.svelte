@@ -1,13 +1,14 @@
 <script>
 	import Button from './Button.svelte';
 	export let label = '';
+	export let back = 'none';
 </script>
 
 <div class="header">
 	<div class="left">
 		<h3>{label}</h3>
 	</div>
-	<div class="right">
+	<div class="right" style="display: {back};">
 		<Button variant="back"><span class="material-symbols-outlined">arrow_back</span>Back</Button>
 	</div>
 </div>

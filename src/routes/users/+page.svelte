@@ -3,16 +3,11 @@
 	import Button from '$lib/components/Button.svelte';
 	import Searchbar from '$lib/components/Searchbar.svelte';
 	import Header from '$lib/components/Header.svelte';
-
 	import { onMount } from 'svelte';
-	// import firebase from 'firebase/app';
-	// import 'firebase/firestore';
-	// import { firebaseConfig } from '$lib/firebaseConfig';
 
-	let users = [];
-	// // Initialize Firebase
-	// firebase.initializeApp(firebaseConfig);
-	// const db = firebase.firestore();
+	export let data;
+	let users = data.users;
+	console.log(users);
 
 	// onMount(async () => {
 	//     // Fetch data from Firebase
@@ -53,9 +48,9 @@
 <main>
 	<Header label="Users" />
 	<div class="items">
-		<Button variant="success" clickHandler={togglePopup}
-			><span class="material-symbols-outlined"> add </span>Add</Button
-		>
+		<Button variant="success" clickHandler={togglePopup}>
+			<span class="material-symbols-outlined"> add </span>Add
+		</Button>
 		<Searchbar text="Search" />
 	</div>
 	<div class="blur-overlay" style="display: {popupVisible ? 'block' : 'none'}"></div>
@@ -98,7 +93,7 @@
 	</div>
 	<div class="entries">
 		{#each users as user, index}
-			<UserInfo name={user.name} no={index + 1} department={user.department} email={user.email} />
+			<UserInfo name={user.Name} no={index + 1} department={user.Department} email={user.Email} />
 		{/each}
 	</div>
 </main>

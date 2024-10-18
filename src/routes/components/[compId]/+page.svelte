@@ -1,6 +1,8 @@
 <!-- <h1>You are viewing component: {componentId}</h1> -->
 <script>
-	export let component;
+	export let data;
+	const component = data.component;
+	console.log(component);
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import InputField from '$lib/components/InputField.svelte';

@@ -4,7 +4,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import Component from '$lib/components/Component.svelte';
 
-	export let componentList;
+	export let data;
+	console.log(data.componentList[0].LastUpdated);
 </script>
 
 <main>
@@ -16,7 +17,7 @@
 		</div>
 	</div>
 	<div class="componentList">
-		{#each componentList as component}
+		{#each data.componentList as component}
 			<Component {component} />
 		{/each}
 	</div>
@@ -36,7 +37,7 @@
 	}
 
 	.componentList {
-		padding-top: 22vh;
+		padding-top: 25vh;
 		display: grid;
 		grid-template-columns: auto auto auto auto;
 		justify-content: space-evenly;

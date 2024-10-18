@@ -1,13 +1,13 @@
 <script lang="js">
 	import Button from '$lib/components/Button.svelte';
-	export let no= number;
-	export let name= String;
-	export let email= String;
-	export let department= String;
+	export let no = number;
+	export let name = String;
+	export let email = String;
+	export let department = String;
 </script>
 
 <div class="user-card">
-	<p>{no}.{name}</p>
+	<p>{no}.&nbsp;{name}</p>
 	<p>{email}</p>
 	<p>{department}</p>
 	<Button variant="danger">Delete<span class="material-symbols-outlined"> delete </span></Button>
