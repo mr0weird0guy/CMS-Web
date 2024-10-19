@@ -9,7 +9,7 @@
 	button {
 		width: 110px;
 		height: 40px;
-		border-radius: 10px;
+		border-radius: 8px;
 		border: none;
 		font-size: 16px; /* Now looks better */
 		cursor: pointer;
@@ -21,7 +21,10 @@
 	}
 
 	/* Standardizing the size and padding of all variants */
-	.search, .primary, .danger, .success {
+	.search,
+	.primary,
+	.danger,
+	.success {
 		width: 110px;
 		height: 40px;
 		padding: 0 10px;
@@ -42,7 +45,7 @@
 	.success {
 		background-color: #27d76d;
 	}
-	
+
 	/* I add a hover effect */
 	button:hover {
 		opacity: 0.9; /* Adjust some opacity on hover :) */

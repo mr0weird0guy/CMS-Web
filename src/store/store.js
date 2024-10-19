@@ -1,5 +1,15 @@
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { setDoc, updateDoc, deleteDoc, doc, getDoc, getDocs, collection } from 'firebase/firestore';
+import {
+	setDoc,
+	updateDoc,
+	deleteDoc,
+	doc,
+	getDoc,
+	getDocs,
+	collection,
+	orderBy,
+	query
+} from 'firebase/firestore';
 import { writable } from 'svelte/store';
 import { auth, firestore } from '$lib/firebase/config';
 import { convertTimestamps } from '../lib/Utils/utility';
@@ -92,5 +102,45 @@ export const userHandler = {
 	},
 	delete: async (docId) => {
 		await deleteDoc(doc(userCol, docId));
+	}
+};
+
+const historyCol = collection(firestore, 'History');
+
+export const historyHandler = {
+	set: async (docId, data) => {
+		await setDoc(doc(historyCol, docId), data);
+	},
+	getAll: async () => {
+		// const q = query(historyCol, orderBy('BookedOn'));
+		const docs = await getDocs(historyCol);
+		// let userDataList = [];
+		// let historyList = {};
+		let historyList = [];
+		docs.forEach((history) => {
+			let item = {
+				...history.data(),
+				id: history.id
+			};
+			historyList = [item, ...historyList];
+			// userDataList = [item, ...userDataList];
+			// let user = history.data().userEmail;
+			// historyList[user] = userDataList;
+		});
+		console.log('item ', historyList);
+		return historyList;
+	},
+	get: async (docId) => {
+		const user = await getDoc(doc(historyCol, docId));
+		return {
+			...user.data(),
+			id: user.id
+		};
+	},
+	update: async (docId, data) => {
+		await updateDoc(doc(historyCol, docId), data);
+	},
+	delete: async (docId) => {
+		await deleteDoc(doc(historyCol, docId));
 	}
 };
